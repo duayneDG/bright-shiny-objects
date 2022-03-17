@@ -162,26 +162,26 @@ test('addSong', function () {
 test('updateReportCard', function () {
     let reportCard = {
         lowestGrade: 70,
-        highestGrade: 96,
+        highestGrade: 95,
         averageGrade: 82,
-        grades: [70, 96, 80]
+        grades: [70, 95, 80]
     };
     expect(updateReportCard(reportCard, 62)).toStrictEqual({
         lowestGrade: 62,
-        highestGrade: 96,
+        highestGrade: 95,
         averageGrade: 77,
-        grades: [70, 96, 80, 62]
+        grades: [70, 95, 80, 62]
     });
     reportCard = {
         lowestGrade: 70,
-        highestGrade: 96,
+        highestGrade: 95,
         averageGrade: 82,
-        grades: [70, 96, 80]
+        grades: [70, 95, 80]
     };
     expect(updateReportCard(reportCard, 100)).toStrictEqual({
         lowestGrade: 70,
         highestGrade: 100,
-        averageGrade: 86.5,
-        grades: [70, 96, 80, 100]
+        averageGrade: 86.3,
+        grades: [70, 95, 80, 100]
     });
 });

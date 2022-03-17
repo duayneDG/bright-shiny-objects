@@ -16,7 +16,7 @@
     "url": "https://github.com/ci-wdi-900/wait-i-object/issues"
   },
   "homepage": "https://github.com/ci-wdi-900/wait-i-object#readme",
-  "dependencies": {
-    "jest": "^27.0.4"
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
