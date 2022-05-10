@@ -83,16 +83,12 @@ const car = {
 };
 
 function fixCar(carObj){
-  let tuneUp = carObj.needsMaitenance;
+  car.needsMaitenance = false; 
 
-  if(tuneUp){
-  tuneUp = false;
-  carObj.needsMaitenance = tuneUp;
-  }
-  return carObj
+  return (carObj) 
 };
 
-console.log(fixCar(car))
+fixCar(car)
 
 /*
 ### `addGrades`
@@ -269,30 +265,26 @@ const reportCard = {
 
 // 1. Accepts two parameters, a report card and a new grade (a number between 0 and 100)
 function updateReportCard(reportCard, newGrade){
-//    console.log(reportCard)
 
 // 2. Updates the report card's lowest grade, highest grade, and average grade
 
     let schGrades = reportCard.grades
     schGrades.push(newGrade)
+
     //sorted Grades array: low to high
     sortedGrades = schGrades.sort(function(a, b){return a - b});
+    let arrLength = sortedGrades.length 
     lowGrade = sortedGrades[0]
     reportCard.lowestGrade = lowGrade;
-
-    let arrLength = sortedGrades.length 
-    // console.log(arrLength)
-    highestGrade = sortedGrades[arrLength -1] 
-
-
+    reportCard.highestGrade = sortedGrades[sortedGrades.length -1]
+    
+ 
     let sortInitializer = 0
-    let gradeSum = sortedGrades.reduce(avgScore, sortInitializer)
+    let gradeSum = reportCard[grades].reduce(avgScore, sortInitializer)
         // console.log(gradeSum/4) 76.7 truncate to 2 sig. figures
-        averageGrade = (gradeSum/arrLength).toFixed(1)
+        averageGrade = Math.ceil(gradeSum/arrLength)
         // console.log(averageGrade)
         reportCard.averageGrade = averageGrade
-        // console.log(gradeSum)
-        // console.log(reportCard)
 
     function avgScore(previous, current, index, array){
         return sortInitializer += current 
@@ -300,8 +292,8 @@ function updateReportCard(reportCard, newGrade){
     return reportCard
 }
 
-// console.log(updateReportCard(reportCard, 62))
-console.log(updateReportCard(reportCard, 100))
+console.log(updateReportCard(reportCard, 62))
+// console.log(updateReportCard(reportCard, 100))
 
 
 
